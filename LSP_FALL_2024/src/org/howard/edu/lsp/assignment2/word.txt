@@ -1,0 +1,5 @@
+Hello! This is an example... Yes, an example!!! Wait—why so many punctuations?
+Well... it's simple: punctuation, such as commas, periods, and exclamations should not matter!
+Numbers like 12345, or symbols like %, &, and $, should be ignored!
+Wait... did I mention, that "Hello" is the same as "hello"? Well, it is! :)
+System.out.println("Kofi is a boy")
