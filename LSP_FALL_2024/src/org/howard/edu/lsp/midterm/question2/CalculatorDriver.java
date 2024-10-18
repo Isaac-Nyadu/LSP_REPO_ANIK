@@ -9,7 +9,7 @@ public class CalculatorDriver {
     /**
      * The main method where program execution begins.
      *
-     * @param args command-line arguments passed during execution (not used)
+     * @param args command-line arguments passed during execution
      */
     public static void main(String[] args) {
         System.out.println(Calculator.sum(5, 10));              // Output: 15 (sum of two integers)
