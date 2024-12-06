@@ -30,15 +30,15 @@ public class ShapeRendererTest {
         renderer.renderShape("rectangle");
         assertTrue(outContent.toString().trim().contains("Drawing a Rectangle"));
     }
-    
+
     @Test
-    public void testRenderHexagon() {
-    	ShapeRenderer renderer = new ShapeRenderer();
-    	ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    	System.setOut(new PrintStream(outContent));
-    	
-    	renderer.renderShape("triangle");
-    	assertTrue(outContent.toString().trim().contains("Drawing a Triangle"));
+    public void testRenderTriangle() {
+        ShapeRenderer renderer = new ShapeRenderer();
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        renderer.renderShape("triangle");
+        assertTrue(outContent.toString().trim().contains("Drawing a Triangle"));
     }
 
     @Test
@@ -56,5 +56,30 @@ public class ShapeRendererTest {
         ShapeFactory factory1 = ShapeFactory.getInstance();
         ShapeFactory factory2 = ShapeFactory.getInstance();
         assertSame(factory1, factory2);
+    }
+
+    /**
+     * New direct tests to verify instantiation of each shape type
+     * without relying solely on console output.
+     */
+    @Test
+    public void testShapeInstantiations() {
+        ShapeFactory factory = ShapeFactory.getInstance();
+
+        Shape circle = factory.getShape("circle");
+        assertNotNull("Expected a Circle instance, but got null", circle);
+        assertTrue("Expected instance of Circle", circle instanceof Circle);
+
+        Shape rectangle = factory.getShape("rectangle");
+        assertNotNull("Expected a Rectangle instance, but got null", rectangle);
+        assertTrue("Expected instance of Rectangle", rectangle instanceof Rectangle);
+
+        Shape triangle = factory.getShape("triangle");
+        assertNotNull("Expected a Triangle instance, but got null", triangle);
+        assertTrue("Expected instance of Triangle", triangle instanceof Triangle);
+
+        // Test an unknown shape type
+        Shape unknown = factory.getShape("hexagon");
+        assertNull("Expected null for unknown shape type 'hexagon'", unknown);
     }
 }
